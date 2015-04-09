@@ -1,0 +1,30 @@
+Project Tournament :-
+This provides database schema and methods to store and record information for a tournament. 
+It provides API to get player's standings and the swiss pairing for next round of match.
+The database "tournament" must be created before using the db api functions provided.
+Currently a cli based input supported. Will be extended to web based soon..
+
+Tables:
+Players   - Player Information includes Player's full name and Id. (names need not be unique)
+Match     - Match results  includes winner and loser for each match
+
+Views:
+p_wins :  Aggregate of wins per player
+p_loss : Aggregate of loss per player
+p_standing:  Join of p_wins and p_loss to calculate the player standings in required format for use in finding the swiss pairing.
+
+Files included :
+tournament.sql   This provides the sql commands to create the tables for the tournament database
+tournament.py    This provides the DB API
+tournament_test.py  Unit test functions provided by Udacity
+run_tournament.py   CLI based program to input players name and report match results for a single tournament.
+
+Assumptions/Limitations:
+Accepts even number of players.
+Match results have to be win or loss. Tie is not supported
+
+Invocation:
+1. Create database tournament
+2. Create tables and view from tournament.sql
+3. python run_tournament.py
+
